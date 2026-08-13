@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # get "lists/:id", to: "lists#show"
   # post "lists", to: "lists#create"
   # refacto
-  resources :lists, only: [:index, :show, :new, :create] do
+  resources :lists, only: [:index, :show, :new, :create, :destroy] do
     resources :bookmarks, only: [:create]
   end
 

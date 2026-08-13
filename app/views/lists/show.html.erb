@@ -1,6 +1,9 @@
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <%= link_to "← Back to lists", lists_path, class: "btn btn-outline-secondary" %>
+    <%= link_to "← Back to lists", lists_path, class: "btn btn-outline-light" %>
+
+
+    <%= link_to "Delete list", list_path(@list), class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   </div>
 
   <h1 class="mb-4"><%= @list.name %></h1>
