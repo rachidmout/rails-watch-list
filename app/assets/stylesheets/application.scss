@@ -11,30 +11,16 @@
 @import "components/index";
 @import "pages/index";
 
-.movie-card img {
-  height: 420px;
-  object-fit: cover;
-}
-
-.movie-card {
-  height: 100%;
-  overflow: hidden;
-}
-
 body {
-  background-color: #f8f9fa;
+  background-color: #0b0d12;
+  color: #f5f7fb;
 }
 
 .card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.btn {
-  border-radius: 8px;
-}
-
-.pagy {
-  margin-top: 24px;
+  background: #151922;
+  color: #f5f7fb;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }

@@ -1,0 +1,39 @@
+.list-cover-card {
+  min-height: 320px;
+  padding: 28px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.list-cover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.list-cover-content {
+  color: #ffffff;
+}
+
+.list-cover-content h2 {
+  margin: 6px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.list-cover-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.list-label {
+  color: #e5484d;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}

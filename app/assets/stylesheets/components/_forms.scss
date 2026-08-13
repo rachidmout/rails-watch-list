@@ -1,0 +1,28 @@
+.form-control,
+.form-select {
+  background: #1d2330;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f5f7fb;
+  border-radius: 10px;
+}
+
+.form-control::placeholder {
+  color: #7f8794;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: #1d2330;
+  color: #f5f7fb;
+  border-color: #e5484d;
+  box-shadow: 0 0 0 0.2rem rgba(229, 72, 77, 0.15);
+}
+
+.form-label {
+  color: #d1d5db;
+}
+
+.form-select option {
+  background: #1d2330;
+  color: #f5f7fb;
+}
