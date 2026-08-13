@@ -10,6 +10,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
+    @review = Review.new
     @pagy, @bookmarks = pagy(:offset, @list.bookmarks.order(:id), limit: 3)
   end
 

@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   # refacto
   resources :lists, only: [:index, :show, :new, :create, :destroy] do
     resources :bookmarks, only: [:create]
+    resources :reviews, only: [:create]
   end
 
   resources :bookmarks, only: [:destroy]
+  resources :reviews, only: [:destroy]
 end

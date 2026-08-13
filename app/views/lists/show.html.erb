@@ -59,4 +59,46 @@
       No movies in this list yet.
     </div>
   <% end %>
+
+  <div class="card mt-5 mb-4">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Leave a review</h2>
+
+      <%= simple_form_for [@list, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating,
+                    collection: 1..5,
+                    prompt: "Choose a rating" %>
+        <%= f.button :submit, "Add review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <h2 class="h4 mb-3">Reviews</h2>
+
+    <% if @list.reviews.any? %>
+      <% @list.reviews.each do |review| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="mb-2">
+              <strong>★ <%= review.rating %>/5</strong>
+            </p>
+
+            <p class="card-text"><%= review.content %></p>
+
+            <%= link_to "Delete review",
+                        review_path(review),
+                        class: "btn btn-outline-danger btn-sm",
+                        data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="text-secondary">No reviews yet.</p>
+    <% end %>
+  </div>
 </div>
