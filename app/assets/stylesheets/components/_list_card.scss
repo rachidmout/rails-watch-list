@@ -31,6 +31,11 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.list-cover-card--empty {
+  background:
+    linear-gradient(135deg, #1d2330, #151922);
+}
+
 .list-label {
   color: #e5484d;
   font-size: 0.7rem;

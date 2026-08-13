@@ -1,0 +1,26 @@
+.lists-hero {
+  min-height: 360px;
+  padding: 40px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.lists-hero-content {
+  max-width: 520px;
+}
+
+.lists-hero-content h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin: 8px 0 12px;
+}
+
+.lists-hero-content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  margin: 0;
+}

@@ -1,21 +1,28 @@
 <div class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1>My Lists</h1>
+  <div
+    class="lists-hero mb-5"
+    style="
+      background-image:
+        linear-gradient(rgba(11, 13, 18, 0.10), rgba(11, 13, 18, 0.65)),
+        url('<%= asset_path("default-list.png") %>');
+    "
+  >
+    <div class="lists-hero-content">
+      <p>Create collections and save the movies you want to remember.</p>
+    </div>
   </div>
+
+    <h2 class="mb-4">My Lists</h2>
 
   <% if @lists.any? %>
     <div class="row">
       <% @lists.each do |list| %>
+        <% cover_style = list.image_url.present? ? "background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.82)), url('#{list.image_url}');" : "" %>
+
         <div class="col-12 col-md-6 col-lg-4 mb-4">
           <%= link_to list_path(list), class: "text-decoration-none" do %>
-            <div
-              class="list-cover-card"
-              style="
-                background-image:
-                  linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.82)),
-                  url('<%= list.image_url %>');
-              "
-            >
+            <div class="list-cover-card <%= "list-cover-card--empty" if list.image_url.blank? %>" style="<%= cover_style %>" >
+
               <div class="list-cover-content">
                 <span class="list-label">WATCHLIST</span>
 
