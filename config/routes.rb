@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # post "lists", to: "lists#create"
   # refacto
   resources :lists, only: [:index, :show, :new, :create] do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, only: [:create]
   end
 
   resources :bookmarks, only: [:destroy]

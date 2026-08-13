@@ -1,12 +1,59 @@
-<h1><%= @list.name %></h1>
-<% @list.bookmarks.each do |bookmark| %>
-  <%= bookmark.movie.title %>
-<% end %>
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <%= link_to "← Back to lists", lists_path, class: "btn btn-outline-secondary" %>
+  </div>
 
-<%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+  <h1 class="mb-4"><%= @list.name %></h1>
 
-<% @list.bookmarks.each do |bookmark| %>
-  <%= bookmark.movie.title %>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Add a movie</h2>
 
-  <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-<% end %>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.association :movie %>
+        <%= f.input :comment %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @bookmarks.any? %>
+    <div class="row">
+      <% @bookmarks.each do |bookmark| %>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+          <div class="card movie-card h-100">
+            <%= image_tag bookmark.movie.poster_url, class: "card-img-top" %>
+
+            <div class="card-body">
+              <h5 class="card-title"><%= bookmark.movie.title %></h5>
+
+              <p class="card-text">
+                Rating: <%= bookmark.movie.rating %> / 10
+              </p>
+
+              <p class="card-text">
+                <%= bookmark.comment %>
+              </p>
+
+              <%= link_to "Delete",
+                          bookmark_path(bookmark),
+                          class: "btn btn-outline-danger btn-sm",
+                          data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                          } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <%== @pagy.series_nav %>
+    </div>
+  <% else %>
+    <div class="alert alert-light border">
+      No movies in this list yet.
+    </div>
+  <% end %>
+</div>

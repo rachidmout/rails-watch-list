@@ -10,3 +10,31 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.movie-card img {
+  height: 420px;
+  object-fit: cover;
+}
+
+.movie-card {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.btn {
+  border-radius: 8px;
+}
+
+.pagy {
+  margin-top: 24px;
+}
