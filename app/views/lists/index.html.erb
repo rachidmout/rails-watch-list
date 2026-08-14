@@ -17,11 +17,11 @@
   <% if @lists.any? %>
     <div class="row">
       <% @lists.each do |list| %>
-        <% cover_style = list.image_url.present? ? "background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.82)), url('#{list.image_url}');" : "" %>
+        <% cover_style = list.photo.attached? ? "background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.82)), url('#{url_for(list.photo)}');" : "" %>
 
         <div class="col-12 col-md-6 col-lg-4 mb-4">
           <%= link_to list_path(list), class: "text-decoration-none" do %>
-            <div class="list-cover-card <%= "list-cover-card--empty" if list.image_url.blank? %>" style="<%= cover_style %>" >
+            <div class="list-cover-card <%= "list-cover-card--empty" unless list.photo.attached? %>" style="<%= cover_style %>">
 
               <div class="list-cover-content">
                 <span class="list-label">WATCHLIST</span>

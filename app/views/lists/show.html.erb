@@ -8,6 +8,12 @@
 
   <h1 class="mb-4"><%= @list.name %></h1>
 
+  <% if @list.photo.attached? %>
+  <%= image_tag @list.photo,
+                class: "img-fluid rounded mb-4 w-100",
+                style: "max-height: 420px; object-fit: cover;" %>
+<% end %>
+
   <div class="card mb-4">
     <div class="card-body">
       <h2 class="h5 mb-3">Add a movie</h2>
